@@ -1,17 +1,17 @@
 {% extends "base.html" %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Domov{% endblock %}
 
 {% block content %}
 <div class="jumbotron mt-4" style="background-color: #e3f2fd; color: #0d47a1;">
-    <h1 class="display-4">Welcome to the Volunteering Platform!</h1>
-    <p style="color: #01579b;">Connecting passionate volunteers with meaningful projects is at the heart of what we do. Our platform bridges the gap between eager volunteers and impactful community initiatives, creating opportunities for individuals to contribute to causes they are passionate about. By joining our community, you can discover and participate in diverse volunteer projects, from environmental conservation to social outreach, each designed to make a real difference. Together, we can build a network of dedicated individuals committed to positive change. Join us today and be a part of something greater – your efforts can help shape a better world.</p>
+    <h1 class="display-4">Vitajte na platforme pre dobrovoľníctvo!</h1>
+    <p style="color: #01579b;">Spojovanie nadšených dobrovoľníkov s významnými projektami je jadrom toho, čo robíme. Naša platforma prekonáva priepasť medzi dychtivými dobrovoľníkmi a dôležitými komunitnými iniciatívami, vytvárajúca príležitosti pre jednotlivcov prispievať k veciam, na ktorých im záleží. Pripojením sa k našej komunite môžete objaviť a zúčastniť sa rôznych dobrovoľníckych projektov, od ochrany životného prostredia až po sociálnu pomoc, každého zameraného na skutočný dopad. Spoločne môžeme vybudovať sieť oddaných jednotlivcov, ktorí sú zaviazaní pozitívnej zmene. Pridajte sa k nám dnes a buďte súčasťou niečoho väčšieho – vaše úsilie môže pomôcť formovať lepší svet.</p>
     <hr class="my-4">
-    <p>Find, join, and create inspiring volunteer events in your community.</p>
+    <p>Nájdite, zapojte sa a vytvorte inšpirujúce dobrovoľnícke podujatia vo vašej komunite.</p>
     {% if current_user.is_authenticated %}
-    <a class="btn btn-primary btn-lg" href="{{ url_for('new_event') }}" role="button" id="create-event-btn" style="background-color: #64b5f6; border-color: #64b5f6;">Create New Event</a>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('new_event') }}" role="button" id="create-event-btn" style="background-color: #64b5f6; border-color: #64b5f6;">Vytvoriť Nové Podujatie</a>
     {% else %}
-    <a class="btn btn-primary btn-lg" href="{{ url_for('register') }}" role="button" id="join-btn" style="background-color: #64b5f6; border-color: #64b5f6;">Join Us Today</a>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('register') }}" role="button" id="join-btn" style="background-color: #64b5f6; border-color: #64b5f6;">Pridajte sa k nám dnes</a>
     {% endif %}
 </div>
 
@@ -24,10 +24,10 @@
                     <h5 class="card-title" style="color: #0277bd;">{{ event.title }}</h5>
                     <p class="card-text" style="color: #01579b;">{{ event.description[:100] }}...</p>
                     <p class="card-text"><small class="text-muted">{{ event.location }}</small></p>
-                    <a href="{{ url_for('event', event_id=event.id) }}" class="btn btn-primary learn-more-btn" style="background-color: #4fc3f7; border-color: #4fc3f7;">Learn More</a>
+                    <a href="{{ url_for('event', event_id=event.id) }}" class="btn btn-primary learn-more-btn" style="background-color: #4fc3f7; border-color: #4fc3f7;">Viac informácií</a>
                 </div>
                 <div class="card-footer text-muted" style="background-color: #e1f5fe;">
-                    Organized by: {{ event.organizer.username }}
+                    Organizované: {{ event.organizer.username }}
                 </div>
             </div>
         </div>

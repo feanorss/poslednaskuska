@@ -1,36 +1,36 @@
 {% extends "base.html" %}
 
-{% block title %}About Us{% endblock %}
+{% block title %}O nás{% endblock %}
 
 {% block content %}
 <div class="jumbotron mt-4" style="background-color: #e3f2fd; color: #0d47a1;">
-    <h1 class="display-4">About Us</h1>
-    <p class="lead" style="color: #01579b;">Inspiring Change Through Volunteerism</p>
+    <h1 class="display-4">O nás</h1>
+    <p class="lead" style="color: #01579b;">Inšpirujeme zmenu prostredníctvom dobrovoľníctva</p>
     <hr class="my-4">
-    <p style="color: #01579b;">Our mission is to connect passionate volunteers with meaningful projects, fostering a sense of community and making a positive impact on the world.</p>
+    <p style="color: #01579b;">Našou misiou je spojiť nadšených dobrovoľníkov s významnými projektami, podporovať pocit komunity a pozitívne ovplyvňovať svet.</p>
 </div>
 
 <div class="container mt-4">
     <div class="row">
         <div class="col-md-6">
-            <h2 style="color: #0277bd;">Our Vision</h2>
-            <p style="color: #01579b;">We envision a world where everyone has the opportunity to contribute to causes they care about, creating a global network of empowered individuals working towards a common good.</p>
+            <h2 style="color: #0277bd;">Naša vízia</h2>
+            <p style="color: #01579b;">Predstavujeme si svet, kde má každý možnosť prispieť k veciam, na ktorých mu záleží, vytvárajúc globálnu sieť posilnených jednotlivcov pracujúcich na spoločnom dobre.</p>
         </div>
         <div class="col-md-6">
-            <h2 style="color: #0277bd;">Our Goals</h2>
+            <h2 style="color: #0277bd;">Naše ciele</h2>
             <ul style="color: #01579b;">
-                <li>To provide a platform for volunteers to find and participate in meaningful projects.</li>
-                <li>To support organizers in managing their events and finding dedicated participants.</li>
-                <li>To foster a community of like-minded individuals committed to making a difference.</li>
+                <li>Poskytnúť platformu pre dobrovoľníkov, aby mohli nájsť a zapojiť sa do významných projektov.</li>
+                <li>Podporiť organizátorov pri riadení ich podujatí a nájdení oddaných účastníkov.</li>
+                <li>Podporiť komunitu rovnako zmýšľajúcich jednotlivcov, ktorí sa zaviazali robiť rozdiel.</li>
             </ul>
         </div>
     </div>
     <div class="row mt-4">
         <div class="col-md-12">
-            <h2 style="color: #0277bd;">Get Involved</h2>
-            <p style="color: #01579b;">Whether you're looking to volunteer or to organize an event, our platform provides all the tools you need to make a real impact. Join us today and start making a difference in your community!</p>
+            <h2 style="color: #0277bd;">Zapojte sa</h2>
+            <p style="color: #01579b;">Či už chcete dobrovoľničiť alebo organizovať podujatie, naša platforma poskytuje všetky nástroje, ktoré potrebujete na skutočný vplyv. Pridajte sa k nám dnes a začnite robiť rozdiel vo svojej komunite!</p>
             {% if not current_user.is_authenticated %}
-            <a class="btn btn-primary btn-lg" href="{{ url_for('register') }}" role="button" id="join-us-btn" style="background-color: #64b5f6; border-color: #64b5f6;">Join Us Today</a>
+            <a class="btn btn-primary btn-lg" href="{{ url_for('register') }}" role="button" id="join-us-btn" style="background-color: #64b5f6; border-color: #64b5f6;">Pridajte sa k nám dnes</a>
             {% endif %}
         </div>
     </div>

@@ -1,26 +1,26 @@
 {% extends "base.html" %}
 
-{% block title %}Login{% endblock %}
+{% block title %}Prihlásenie{% endblock %}
 
 {% block content %}
 <div class="jumbotron mt-4" style="background-color: #e3f2fd; color: #0d47a1;">
-    <h1 class="display-4">Login to Your Account</h1>
-    <p style="color: #01579b;">Connect with us and start making a difference today!</p>
+    <h1 class="display-4">Prihláste sa do svojho účtu</h1>
+    <p style="color: #01579b;">Spojte sa s nami a začnite robiť rozdiel už dnes!</p>
     <hr class="my-4">
 </div>
 
 <div class="container mt-4">
-    <h2 style="color: #0277bd;">Login</h2>
+    <h2 style="color: #0277bd;">Prihlásenie</h2>
     <form method="POST" action="{{ url_for('login') }}">
         <div class="form-group">
-            <label for="email" style="color: #01579b;">Email Address</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" style="border-color: #64b5f6;">
+            <label for="email" style="color: #01579b;">Emailová Adresa</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Zadajte váš email" style="border-color: #64b5f6;">
         </div>
         <div class="form-group">
-            <label for="password" style="color: #01579b;">Password</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" style="border-color: #64b5f6;">
+            <label for="password" style="color: #01579b;">Heslo</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Zadajte vaše heslo" style="border-color: #64b5f6;">
         </div>
-        <button type="submit" class="btn btn-primary btn-lg" id="login-btn" style="background-color: #64b5f6; border-color: #64b5f6;">Login</button>
+        <button type="submit" class="btn btn-primary btn-lg" id="login-btn" style="background-color: #64b5f6; border-color: #64b5f6;">Prihlásiť sa</button>
     </form>
 </div>
 

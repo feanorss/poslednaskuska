@@ -1,33 +1,33 @@
 {% extends "base.html" %}
-{% block title %}Edit Event{% endblock %}
+{% block title %}Upraviť Podujatie{% endblock %}
 {% block content %}
 <div class="jumbotron mt-4" style="background-color: #e3f2fd; color: #0d47a1;">
-    <h1 class="display-4">Edit Your Event</h1>
-    <p style="color: #01579b;">Make updates to your event details below.</p>
+    <h1 class="display-4">Upraviť Vaše Podujatie</h1>
+    <p style="color: #01579b;">Aktualizujte podrobnosti vášho podujatia nižšie.</p>
     <hr class="my-4">
-    <p>Update the event title, description, category, and location.</p>
+    <p>Upravte názov podujatia, popis, kategóriu a miesto.</p>
 </div>
 
 <div class="container mt-4">
-    <h2 class="my-4" style="color: #0277bd;">Edit Event</h2>
+    <h2 class="my-4" style="color: #0277bd;">Upraviť Podujatie</h2>
     <form method="POST">
         <div class="form-group">
-            <label for="title" style="color: #0277bd;">Title</label>
+            <label for="title" style="color: #0277bd;">Názov</label>
             <input type="text" class="form-control" id="title" name="title" value="{{ event.title }}" style="border-color: #64b5f6;">
         </div>
         <div class="form-group">
-            <label for="description" style="color: #0277bd;">Description</label>
+            <label for="description" style="color: #0277bd;">Popis</label>
             <textarea class="form-control" id="description" name="description" style="border-color: #64b5f6;">{{ event.description }}</textarea>
         </div>
         <div class="form-group">
-            <label for="category" style="color: #0277bd;">Category</label>
+            <label for="category" style="color: #0277bd;">Kategória</label>
             <input type="text" class="form-control" id="category" name="category" value="{{ event.category }}" style="border-color: #64b5f6;">
         </div>
         <div class="form-group">
-            <label for="location" style="color: #0277bd;">Location</label>
+            <label for="location" style="color: #0277bd;">Miesto</label>
             <input type="text" class="form-control" id="location" name="location" value="{{ event.location }}" style="border-color: #64b5f6;">
         </div>
-        <button type="submit" class="btn btn-primary btn-lg" style="background-color: #64b5f6; border-color: #64b5f6;">Update Event</button>
+        <button type="submit" class="btn btn-primary btn-lg" style="background-color: #64b5f6; border-color: #64b5f6;">Aktualizovať Podujatie</button>
     </form>
 </div>
 

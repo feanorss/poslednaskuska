@@ -10,7 +10,7 @@
     <p style="color: #01579b;">Poloha: {{ event.location }}</p>
     <p style="color: #01579b;">Organizátor: {{ event.organizer.username }}</p>
     <hr class="my-4">
-    <a class="btn btn-primary btn-lg" href="{{ url_for('home') }}" role="button" id="back-home-btn" style="background-color: #64b5f6; border-color: #64b5f6;">Back to homepage</a>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('home') }}" role="button" id="back-home-btn" style="background-color: #64b5f6; border-color: #64b5f6;">Späť na hlavnú stránku</a>
 </div>
 
 <div class="container mt-4">
@@ -22,10 +22,10 @@
                     <h5 class="card-title" style="color: #0277bd;">{{ event.title }}</h5>
                     <p class="card-text" style="color: #01579b;">{{ event.description[:100] }}...</p>
                     <p class="card-text"><small class="text-muted">{{ event.location }}</small></p>
-                    <a href="{{ url_for('event', event_id=event.id) }}" class="btn btn-primary learn-more-btn" style="background-color: #4fc3f7; border-color: #4fc3f7;">Learn More</a>
+                    <a href="{{ url_for('event', event_id=event.id) }}" class="btn btn-primary learn-more-btn" style="background-color: #4fc3f7; border-color: #4fc3f7;">Viac informácií</a>
                 </div>
                 <div class="card-footer text-muted" style="background-color: #e1f5fe;">
-                    Organized by: {{ event.organizer.username }}
+                    Organizované: {{ event.organizer.username }}
                 </div>
             </div>
         </div>
