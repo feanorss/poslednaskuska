@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Edit Events{% endblock %}
+{% block content %}
+<div class="jumbotron mt-4" style="background-color: #e3f2fd; color: #0d47a1;">
+    <h1 class="display-4">Edit Your Events</h1>
+    <p style="color: #01579b;">Explore and manage your events.</p>
+    <hr class="my-4">
+    <p>View all your created events below.</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2 class="mb-4">Edit Your Events</h2>
+            <ul class="list-group">
+                {% for event in events %}
+                <li class="list-group-item" style="border-color: #b3e5fc;">
+                    <div class="card-body" style="background-color: #e1f5fe;">
+                        <h5 class="card-title" style="color: #0277bd;">{{ event.title }}</h5>
+                        <p class="card-text" style="color: #01579b;">{{ event.description }}</p>
+                        <p class="card-text"><small class="text-muted">Location: {{ event.location }}</small></p>
+                        <div class="mt-2">
+                            <a href="{{ url_for('edit_event', event_id=event.id) }}" class="btn btn-primary btn-sm mr-2" style="background-color: #4fc3f7; border-color: #4fc3f7;">Edit</a>
+                            <form action="{{ url_for('cancel_event', event_id=event.id) }}" method="post" style="display: inline;">
+                                <button type="submit" class="btn btn-danger btn-sm" style="background-color: #ef9a9a; border-color: #ef9a9a;">Cancel</button>
+                            </form>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

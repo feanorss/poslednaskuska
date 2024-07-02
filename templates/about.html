@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<div class="jumbotron mt-4" style="background-color: #e3f2fd; color: #0d47a1;">
+    <h1 class="display-4">About Us</h1>
+    <p class="lead" style="color: #01579b;">Inspiring Change Through Volunteerism</p>
+    <hr class="my-4">
+    <p style="color: #01579b;">Our mission is to connect passionate volunteers with meaningful projects, fostering a sense of community and making a positive impact on the world.</p>
+</div>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 style="color: #0277bd;">Our Vision</h2>
+            <p style="color: #01579b;">We envision a world where everyone has the opportunity to contribute to causes they care about, creating a global network of empowered individuals working towards a common good.</p>
+        </div>
+        <div class="col-md-6">
+            <h2 style="color: #0277bd;">Our Goals</h2>
+            <ul style="color: #01579b;">
+                <li>To provide a platform for volunteers to find and participate in meaningful projects.</li>
+                <li>To support organizers in managing their events and finding dedicated participants.</li>
+                <li>To foster a community of like-minded individuals committed to making a difference.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <h2 style="color: #0277bd;">Get Involved</h2>
+            <p style="color: #01579b;">Whether you're looking to volunteer or to organize an event, our platform provides all the tools you need to make a real impact. Join us today and start making a difference in your community!</p>
+            {% if not current_user.is_authenticated %}
+            <a class="btn btn-primary btn-lg" href="{{ url_for('register') }}" role="button" id="join-us-btn" style="background-color: #64b5f6; border-color: #64b5f6;">Join Us Today</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript pre zmenu farby tlačidla na zelenú po prejdení myšou
+    const joinUsBtn = document.getElementById('join-us-btn');
+
+    if (joinUsBtn) {
+        joinUsBtn.addEventListener('mouseover', () => {
+            joinUsBtn.style.backgroundColor = '#8bc34a';  // Zelená farba
+            joinUsBtn.style.borderColor = '#8bc34a';     // Zelená farba aj pre okraj
+        });
+
+        joinUsBtn.addEventListener('mouseout', () => {
+            joinUsBtn.style.backgroundColor = '#64b5f6';  // Pôvodná modrá farba
+            joinUsBtn.style.borderColor = '#64b5f6';     // Pôvodná modrá farba aj pre okraj
+        });
+    }
+</script>
+{% endblock %}

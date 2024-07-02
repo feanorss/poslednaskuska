@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}{{ event.title }}{% endblock %}
+
+{% block content %}
+<div class="jumbotron mt-4" style="background-color: #e3f2fd; color: #0d47a1;">
+    <h1 class="display-4">{{ event.title }}</h1>
+    <p style="color: #01579b;">Popis: {{ event.description }}</p>
+    <p style="color: #01579b;">Kategória: {{ event.category }}</p>
+    <p style="color: #01579b;">Poloha: {{ event.location }}</p>
+    <p style="color: #01579b;">Organizátor: {{ event.organizer.username }}</p>
+    <hr class="my-4">
+    <a class="btn btn-primary btn-lg" href="{{ url_for('home') }}" role="button" id="back-home-btn" style="background-color: #64b5f6; border-color: #64b5f6;">Back to homepage</a>
+</div>
+
+<div class="container mt-4">
+    <div class="row">
+        {% for event in events %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100" style="border-color: #b3e5fc;">
+                <div class="card-body" style="background-color: #e1f5fe;">
+                    <h5 class="card-title" style="color: #0277bd;">{{ event.title }}</h5>
+                    <p class="card-text" style="color: #01579b;">{{ event.description[:100] }}...</p>
+                    <p class="card-text"><small class="text-muted">{{ event.location }}</small></p>
+                    <a href="{{ url_for('event', event_id=event.id) }}" class="btn btn-primary learn-more-btn" style="background-color: #4fc3f7; border-color: #4fc3f7;">Learn More</a>
+                </div>
+                <div class="card-footer text-muted" style="background-color: #e1f5fe;">
+                    Organized by: {{ event.organizer.username }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    // JavaScript pre zmenu farby tlačidiel na zelenú po prejdení myšou
+    const backHomeBtn = document.getElementById('back-home-btn');
+    const learnMoreBtns = document.querySelectorAll('.learn-more-btn');
+
+    if (backHomeBtn) {
+        backHomeBtn.addEventListener('mouseover', () => {
+            backHomeBtn.style.backgroundColor = '#8bc34a';  // Zelená farba
+            backHomeBtn.style.borderColor = '#8bc34a';     // Zelená farba aj pre okraj
+        });
+
+        backHomeBtn.addEventListener('mouseout', () => {
+            backHomeBtn.style.backgroundColor = '#64b5f6';  // Pôvodná modrá farba
+            backHomeBtn.style.borderColor = '#64b5f6';     // Pôvodná modrá farba aj pre okraj
+        });
+    }
+
+    learnMoreBtns.forEach(btn => {
+        btn.addEventListener('mouseover', () => {
+            btn.style.backgroundColor = '#8bc34a';  // Zelená farba
+            btn.style.borderColor = '#8bc34a';     // Zelená farba aj pre okraj
+        });
+
+        btn.addEventListener('mouseout', () => {
+            btn.style.backgroundColor = '#4fc3f7';  // Pôvodná modrá farba
+            btn.style.borderColor = '#4fc3f7';     // Pôvodná modrá farba aj pre okraj
+        });
+    });
+</script>
+{% endblock %}

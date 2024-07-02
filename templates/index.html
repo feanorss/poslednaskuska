@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="jumbotron mt-4" style="background-color: #e3f2fd; color: #0d47a1;">
+    <h1 class="display-4">Welcome to the Volunteering Platform!</h1>
+    <p style="color: #01579b;">Connecting passionate volunteers with meaningful projects is at the heart of what we do. Our platform bridges the gap between eager volunteers and impactful community initiatives, creating opportunities for individuals to contribute to causes they are passionate about. By joining our community, you can discover and participate in diverse volunteer projects, from environmental conservation to social outreach, each designed to make a real difference. Together, we can build a network of dedicated individuals committed to positive change. Join us today and be a part of something greater – your efforts can help shape a better world.</p>
+    <hr class="my-4">
+    <p>Find, join, and create inspiring volunteer events in your community.</p>
+    {% if current_user.is_authenticated %}
+    <a class="btn btn-primary btn-lg" href="{{ url_for('new_event') }}" role="button" id="create-event-btn" style="background-color: #64b5f6; border-color: #64b5f6;">Create New Event</a>
+    {% else %}
+    <a class="btn btn-primary btn-lg" href="{{ url_for('register') }}" role="button" id="join-btn" style="background-color: #64b5f6; border-color: #64b5f6;">Join Us Today</a>
+    {% endif %}
+</div>
+
+<div class="container mt-4">
+    <div class="row">
+        {% for event in events %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100" style="border-color: #b3e5fc;">
+                <div class="card-body" style="background-color: #e1f5fe;">
+                    <h5 class="card-title" style="color: #0277bd;">{{ event.title }}</h5>
+                    <p class="card-text" style="color: #01579b;">{{ event.description[:100] }}...</p>
+                    <p class="card-text"><small class="text-muted">{{ event.location }}</small></p>
+                    <a href="{{ url_for('event', event_id=event.id) }}" class="btn btn-primary learn-more-btn" style="background-color: #4fc3f7; border-color: #4fc3f7;">Learn More</a>
+                </div>
+                <div class="card-footer text-muted" style="background-color: #e1f5fe;">
+                    Organized by: {{ event.organizer.username }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    // JavaScript pre zmenu farby tlačidiel na zelenú po prejdení myšou
+    const joinBtn = document.getElementById('join-btn');
+    const createEventBtn = document.getElementById('create-event-btn');
+    const learnMoreBtns = document.querySelectorAll('.learn-more-btn');
+
+    if (joinBtn) {
+        joinBtn.addEventListener('mouseover', () => {
+            joinBtn.style.backgroundColor = '#8bc34a';  // Zelená farba
+            joinBtn.style.borderColor = '#8bc34a';     // Zelená farba aj pre okraj
+        });
+
+        joinBtn.addEventListener('mouseout', () => {
+            joinBtn.style.backgroundColor = '#64b5f6';  // Pôvodná modrá farba
+            joinBtn.style.borderColor = '#64b5f6';     // Pôvodná modrá farba aj pre okraj
+        });
+    }
+
+    if (createEventBtn) {
+        createEventBtn.addEventListener('mouseover', () => {
+            createEventBtn.style.backgroundColor = '#8bc34a';  // Zelená farba
+            createEventBtn.style.borderColor = '#8bc34a';     // Zelená farba aj pre okraj
+        });
+
+        createEventBtn.addEventListener('mouseout', () => {
+            createEventBtn.style.backgroundColor = '#64b5f6';  // Pôvodná modrá farba
+            createEventBtn.style.borderColor = '#64b5f6';     // Pôvodná modrá farba aj pre okraj
+        });
+    }
+
+    learnMoreBtns.forEach(btn => {
+        btn.addEventListener('mouseover', () => {
+            btn.style.backgroundColor = '#8bc34a';  // Zelená farba
+            btn.style.borderColor = '#8bc34a';     // Zelená farba aj pre okraj
+        });
+
+        btn.addEventListener('mouseout', () => {
+            btn.style.backgroundColor = '#4fc3f7';  // Pôvodná modrá farba
+            btn.style.borderColor = '#4fc3f7';     // Pôvodná modrá farba aj pre okraj
+        });
+    });
+</script>
+{% endblock %}

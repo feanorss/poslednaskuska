@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Registrácia{% endblock %}
+{% block content %}
+<div class="jumbotron mt-4" style="background-color: #e3f2fd; color: #0d47a1;">
+    <h1 class="display-4">Join Our Community</h1>
+    <p style="color: #01579b;">Become a part of our volunteer network and start making a difference today. Registration is quick and easy!</p>
+    <hr class="my-4">
+    <p style="color: #01579b;">Sign up to find and participate in meaningful volunteer projects near you.</p>
+</div>
+
+<div class="container mt-4">
+    <h2 style="color: #0277bd;">Registration</h2>
+    <form method="POST" action="{{ url_for('register') }}">
+        <div class="form-group">
+            <label for="username" style="color: #01579b;">Username</label>
+            <input type="text" class="form-control" id="username" name="username">
+        </div>
+        <div class="form-group">
+            <label for="email" style="color: #01579b;">Email Address</label>
+            <input type="email" class="form-control" id="email" name="email">
+        </div>
+        <div class="form-group">
+            <label for="password" style="color: #01579b;">Password</label>
+            <input type="password" class="form-control" id="password" name="password">
+        </div>
+        <button type="submit" class="btn btn-primary" id="register-btn" style="background-color: #64b5f6; border-color: #64b5f6;">Register</button>
+    </form>
+</div>
+
+<script>
+    // JavaScript pre zmenu farby tlačidla na zelenú po prejdení myšou
+    const registerBtn = document.getElementById('register-btn');
+
+    if (registerBtn) {
+        registerBtn.addEventListener('mouseover', () => {
+            registerBtn.style.backgroundColor = '#8bc34a';  // Zelená farba
+            registerBtn.style.borderColor = '#8bc34a';     // Zelená farba aj pre okraj
+        });
+
+        registerBtn.addEventListener('mouseout', () => {
+            registerBtn.style.backgroundColor = '#64b5f6';  // Pôvodná modrá farba
+            registerBtn.style.borderColor = '#64b5f6';     // Pôvodná modrá farba aj pre okraj
+        });
+    }
+</script>
+{% endblock %}
