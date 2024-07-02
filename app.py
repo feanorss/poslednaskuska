@@ -13,7 +13,7 @@ from extensions import db, login_manager
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.urandom(24)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://umjsrizaqqlyaaxqk4sa:p921t0GmgIYKBVsTADCZtkTgtjo9z2@bkjmaaq1ryjgctyghzs5-postgresql.services.clever-cloud.com:50013/bkjmaaq1ryjgctyghzs5'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://u6vkdhl1qfuxjb3ihp8z:JUZmspQYcMTrnKUltM7OaZ0MH8lKgR@bj1jyhvnevkienngjyz0-postgresql.services.clever-cloud.com:50013/bj1jyhvnevkienngjyz0'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db.init_app(app)
 
